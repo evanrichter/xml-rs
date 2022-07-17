@@ -1,0 +1,7 @@
+project: xml-rs
+target: read-events
+
+cmds:
+  - cmd: /read_events
+  - cmd: /read_events_no_inst @@
+    libfuzzer: false
