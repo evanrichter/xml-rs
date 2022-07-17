@@ -1,0 +1,27 @@
+[package]
+name = "xml-rs-fuzz"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+
+[dependencies.xml-rs]
+path = ".."
+
+# Prevent this from interfering with workspaces
+[workspace]
+members = ["."]
+
+[[bin]]
+name = "read_events"
+path = "fuzz_targets/read_events.rs"
+test = false
+doc = false
+
+[profile.release]
+debug = true
